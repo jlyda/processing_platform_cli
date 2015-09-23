@@ -12,6 +12,7 @@ fingerprint_path = sys.argv[1]
 
 USER = 'test'
 PASSWORD = 'test'
+
 SERVICE_HOST = '127.0.0.1'
 SERVICE_PORT = 80
 AUTH_URL = "http://{host}:{port}/auth/".format(host=SERVICE_HOST, port=SERVICE_PORT)
@@ -19,7 +20,7 @@ IDENTIFY_URL = "http://{host}:{port}/identify/".format(host=SERVICE_HOST, port=S
 
 CALLBACK_HOST = '127.0.0.1'
 CALLBACK_PORT = 5001
-CALLBACK_URL = "http://{host}:{port}/callback/".format(host=CALLBACK_HOST, port=CALLBACK_PORT, cid=str(uuid.uuid1())
+CALLBACK_URL = "http://{host}:{port}/callback/{cid}/".format(host=CALLBACK_HOST, port=CALLBACK_PORT, cid=str(uuid.uuid1()))
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
