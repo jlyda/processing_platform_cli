@@ -45,7 +45,7 @@ if is_ok:
     token = data['token']
     fingerprint = open(fingerprint_path).read()
     data = {"fingerprint": fingerprint,
-            "callbackId": CALLBACK_URL}
+            "callbackUrl": CALLBACK_URL}
     msg = "Doing authentication (Url: {ur})".format(ur=IDENTIFY_URL)
     logger.info(msg)
     r = requests.post(IDENTIFY_URL, auth=HTTPBasicAuth(token, ''),

@@ -7,8 +7,8 @@ The *client_identify.py* sends a fingerprint to the processing platform. The *cl
 ```
 AUTH_REQUEST_JSON =
 {
- callbackId: "de305d54-75b4-431b-adb2-eb6b9e546013",
- fingerprint: "exm5dfjKd/Ycxe/mp8vP5aRZSvnebtOHyp/5Lc5SEB+Gfb9..."
+ username: "test",
+ password: "test"
 }
 ```
 
@@ -30,7 +30,7 @@ AUTH_RESPONSE_JSON =
 ```
 IDENTIFICATION_REQUEST_JSON =
 {
- callbackId: "de305d54-75b4-431b-adb2-eb6b9e546013",
+ callbackUrl: "http://127.0.0.1:5001/callback/de305d54-75b4-431b-adb2-eb6b9e546013/",
  fingerprint: "exm5dfjKd/Ycxe/mp8vP5aRZSvnebtOHyp/5Lc5SEB+Gfb9..."
 }
 ```
