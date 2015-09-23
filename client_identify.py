@@ -12,11 +12,14 @@ fingerprint_path = sys.argv[1]
 
 USER = 'test'
 PASSWORD = 'test'
-HOST = '127.0.0.1'
-PORT = 80
-AUTH_URL = "http://{host}:{port}/auth/".format(host=HOST, port=PORT)
-IDENTIFY_URL = "http://{host}:{port}/identify/".format(host=HOST, port=PORT)
-CALLBACK_ID = str(uuid.uuid1())
+SERVICE_HOST = '127.0.0.1'
+SERVICE_PORT = 80
+AUTH_URL = "http://{host}:{port}/auth/".format(host=SERVICE_HOST, port=SERVICE_PORT)
+IDENTIFY_URL = "http://{host}:{port}/identify/".format(host=SERVICE_HOST, port=SERVICE_PORT)
+
+CALLBACK_HOST = '127.0.0.1'
+CALLBACK_PORT = 5001
+CALLBACK_URL = "http://{host}:{port}/callback/".format(host=CALLBACK_HOST, port=CALLBACK_PORT, cid=str(uuid.uuid1())
 
 logger = logging.getLogger(__name__)
 logger.setLevel(logging.DEBUG)
@@ -41,7 +44,7 @@ if is_ok:
     token = data['token']
     fingerprint = open(fingerprint_path).read()
     data = {"fingerprint": fingerprint,
-            "callbackId": CALLBACK_ID}
+            "callbackId": CALLBACK_URL}
     msg = "Doing authentication (Url: {ur})".format(ur=IDENTIFY_URL)
     logger.info(msg)
     r = requests.post(IDENTIFY_URL, auth=HTTPBasicAuth(token, ''),
